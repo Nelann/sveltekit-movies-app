@@ -31,15 +31,15 @@
 						<p class="text-left">{movie?.original_title}</p>
 						<p class="text-left italic">{genres}</p>
 						<p class="text-left">{movie?.overview}</p>
-						<div class="carousel carousel-end rounded-box gap-2 h-full">
+						<div class="carousel carousel-end rounded-box gap-2">
 							{#each data?.trailerMovies.slice(0, 3) as trailerMovie}
 								{#if trailerMovie.length === 0}
 									<div>
 										<p>Not founds tailer</p>
 									</div>
 								{:else}
-									<div class="carousel-item w-full h-fit md:w-1/2">
-										<div class="w-full h-fit rounded-box">
+									<div class="carousel-item w-full h-full md:w-1/2">
+										<div class="w-full h-fit sm:h-full rounded-box">
 											<Youtube id={trailerMovie.key} class="w-full h-full" />
 										</div>
 									</div>
