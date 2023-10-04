@@ -27,7 +27,7 @@
 						/>
 					</figure>
 					<div class="card-body">
-						<h2 class="card-title">{movie?.title}</h2>
+						<h2 class="card-title text-left">{movie?.title}</h2>
 						<p class="text-left">{movie?.original_title}</p>
 						<p class="text-left italic">{genres}</p>
 						<p class="text-left">{movie?.overview}</p>
