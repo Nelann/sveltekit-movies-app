@@ -14,12 +14,12 @@
 						alt="Movie"
 					/>
 				</figure>
-				<div class="card-body">
-					<a href="/movie/{movie?.id}" data-sveltekit-preload-code>
+				<a href="/movie/{movie?.id}" data-sveltekit-preload-code>
+					<div class="card-body">
 						<h2 class="card-title hover:text-blue-500">{movie?.title}</h2>
-					</a>
-					<p class="text-justify">{movie?.overview}</p>
-				</div>
+						<p class="text-justify">{movie?.overview}</p>
+					</div>
+				</a>
 			</div>
 		{/each}
 	</div>
