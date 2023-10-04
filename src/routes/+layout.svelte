@@ -20,7 +20,7 @@
 <main>
 	<slot />
 </main>
-<footer class="my-12">
+<footer class="p-12">
 	<p class="text-center">Made with 💖 and 🍵 with Nelan</p>
 	<p class="text-center">&copy; {new Date().getFullYear()}</p>
 </footer>
