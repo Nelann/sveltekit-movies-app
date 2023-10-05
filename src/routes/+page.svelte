@@ -1,26 +1,24 @@
 <script>
+	import MovieList from '../lib/components/MovieList.svelte';
+
 	export let data;
 
 	$: popularMovies = data?.popularMovies;
+
+	let title = '';
 </script>
 
-<section class="my-10 mx-4 sm:mx-auto max-w-[1300px]">
-	<div class="flex flex-wrap justify-center gap-4">
-		{#each popularMovies as movie}
-			<div class="card w-96 bg-base-100 shadow-xl">
-				<figure>
-					<img
-						src="https://image.tmdb.org/t/p/original/{movie?.poster_path ?? movie?.backdrop_path}"
-						alt="Movie"
-					/>
-				</figure>
-				<a href="/movie/{movie?.id}" data-sveltekit-preload-code>
-					<div class="card-body">
-						<h2 class="card-title hover:text-blue-500">{movie?.title}</h2>
-						<p class="text-justify">{movie?.overview}</p>
-					</div>
-				</a>
-			</div>
-		{/each}
+<section class="mx-4 sm:mx-auto max-w-[1300px]">
+	<div class="w-full my-8">
+		<form class="join w-full" action="/search">
+			<input
+				class="input input-bordered join-item w-full"
+				placeholder="Search movie here..."
+				name="title"
+				bind:value={title}
+			/>
+			<button class="btn join-item rounded-r-md" type="submit">Search Movie</button>
+		</form>
 	</div>
+	<MovieList movies={popularMovies} />
 </section>
