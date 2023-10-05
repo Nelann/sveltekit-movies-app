@@ -36,11 +36,7 @@
 						<p class="text-left">⭐ {movie?.vote_average}</p>
 						<p class="text-left italic">{genres}</p>
 						<p class="text-left">{movie?.overview}</p>
-						{#if data?.trailerMovies.length === 0}
-							<div>
-								<p class="font-semibold text-center text-4xl">Not found tailer</p>
-							</div>
-						{:else}
+						{#if data?.trailerMovies.length}
 							<div class="carousel carousel-end rounded-box gap-2">
 								{#each data?.trailerMovies.slice(0, 3) as trailerMovie}
 									<div class="carousel-item w-full h-full md:w-1/2">
@@ -49,6 +45,10 @@
 										</div>
 									</div>
 								{/each}
+							</div>
+						{:else}
+							<div>
+								<p class="font-semibold text-center text-4xl">Not found tailer</p>
 							</div>
 						{/if}
 						<div class="card-actions justify-end">

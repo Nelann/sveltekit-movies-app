@@ -19,5 +19,15 @@
 			Search Movie by title <span class="bg-blue-500 rounded-md italic px-2 py-1">"{title}"</span>
 		</p>
 	</div>
-	<MovieList {movies} />
+	{#if movies.length}
+		<MovieList {movies} />
+	{:else}
+		<div class="h-screen grid place-content-center">
+			<h1 class="text-center font-semibold text-2xl">
+				Not found movies with title <span class="bg-red-500 text-black rounded-md italic px-2 py-1"
+					>"{title}"</span
+				>
+			</h1>
+		</div>
+	{/if}
 </section>
