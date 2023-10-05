@@ -9,6 +9,10 @@
 	$: movies = data?.searchMovies;
 </script>
 
+<svelte:head>
+	<title>Sveltekit Movies App | Search</title>
+</svelte:head>
+
 <section class="my-10 mx-4 sm:mx-auto max-w-[1300px]">
 	<div class="my-8">
 		<p class="font-semibold">

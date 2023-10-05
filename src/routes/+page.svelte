@@ -8,6 +8,10 @@
 	let title = '';
 </script>
 
+<svelte:head>
+	<title>Sveltekit Movies App | Home</title>
+</svelte:head>
+
 <section class="mx-4 sm:mx-auto max-w-[1300px]">
 	<div class="w-full my-8">
 		<form class="join w-full" action="/search">

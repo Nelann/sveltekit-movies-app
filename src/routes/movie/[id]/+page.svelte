@@ -8,6 +8,10 @@
 	const genres = movie?.genres?.map((genre) => genre.name).join(', ');
 </script>
 
+<svelte:head>
+	<title>Sveltekit Movies App | {movie?.title}</title>
+</svelte:head>
+
 <section>
 	<div
 		class="hero min-h-screen"
