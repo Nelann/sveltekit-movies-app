@@ -33,23 +33,24 @@
 					<div class="card-body">
 						<h2 class="card-title text-left">{movie?.title}</h2>
 						<p class="text-left">{movie?.original_title}</p>
+						<p class="text-left">⭐ {movie?.vote_average}</p>
 						<p class="text-left italic">{genres}</p>
 						<p class="text-left">{movie?.overview}</p>
-						<div class="carousel carousel-end rounded-box gap-2">
-							{#each data?.trailerMovies.slice(0, 3) as trailerMovie}
-								{#if trailerMovie.length === 0}
-									<div>
-										<p>Not founds tailer</p>
-									</div>
-								{:else}
+						{#if data?.trailerMovies.length === 0}
+							<div>
+								<p class="font-semibold text-center text-4xl">Not found tailer</p>
+							</div>
+						{:else}
+							<div class="carousel carousel-end rounded-box gap-2">
+								{#each data?.trailerMovies.slice(0, 3) as trailerMovie}
 									<div class="carousel-item w-full h-full md:w-1/2">
 										<div class="w-full h-fit sm:h-full rounded-box">
 											<Youtube id={trailerMovie.key} class="w-full h-full" />
 										</div>
 									</div>
-								{/if}
-							{/each}
-						</div>
+								{/each}
+							</div>
+						{/if}
 						<div class="card-actions justify-end">
 							<a class="btn btn-primary w-full" href="/">Back</a>
 						</div>

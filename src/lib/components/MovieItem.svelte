@@ -12,6 +12,7 @@
 	<a href="/movie/{movie?.id}" data-sveltekit-preload-code>
 		<div class="card-body">
 			<h2 class="card-title hover:text-blue-500">{movie?.title}</h2>
+			<p class="text-left">⭐ {movie?.vote_average}</p>
 			<p class="text-justify">{movie?.overview}</p>
 		</div>
 	</a>
