@@ -1,7 +1,7 @@
 <script>
-	import MovieList from '../lib/components/MovieList.svelte';
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
+	import MovieList from '../lib/components/shared/movie-list.svelte';
 
 	export let data;
 

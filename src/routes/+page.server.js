@@ -13,7 +13,5 @@ export async function load({ fetch }) {
 		return data?.results;
 	};
 
-	return {
-		popularMovies: getPopularMovies()
-	};
+	return { popularMovies: await getPopularMovies() };
 }

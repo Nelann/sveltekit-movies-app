@@ -1,5 +1,5 @@
 <script>
-	import MovieItem from './MovieItem.svelte';
+	import MovieItem from './movie-item.svelte';
 
 	export let movies;
 </script>

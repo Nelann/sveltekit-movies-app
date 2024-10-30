@@ -1,11 +1,12 @@
 <script>
 	import Youtube from 'svelte-youtube-embed';
+	import { derived } from 'svelte/store';
+	import nofFoundImage from '../../../assets/Image-not-found.png';
 
-	export let data;
+	let { data } = $props();
 
-	const movie = data?.movie;
-	const trailerMovie = data?.trailerMovies.find((movie) => movie.type === 'Trailer');
-	const genres = movie?.genres?.map((genre) => genre.name).join(', ');
+	const movie = $state(data?.movie);
+	let genres = $derived(movie?.genres?.map((genre) => genre.name).join(', '));
 </script>
 
 <svelte:head>
@@ -19,17 +20,31 @@
 			movie?.backdrop_path ?? movie?.poster_path
 		});`}
 	>
-		<div class="hero-overlay bg-opacity-60" />
+		<div class="hero-overlay bg-opacity-60"></div>
 		<div class="hero-content text-center text-neutral-content">
-			<div class="max-w-fullxl">
-				<div class="card sm:card-side bg-base-100 shadow-xl">
-					<figure>
-						<img
-							src="https://image.tmdb.org/t/p/original/{movie?.poster_path ?? movie?.backdrop_path}"
-							alt={movie?.title}
-							class="w-full h-full"
-						/>
-					</figure>
+			<div class="max-w-full">
+				<div class="card sm:card-side bg-base-100 shadow-xl mx-auto">
+					{#if movie.backdrop_path}
+						<figure>
+							<img
+								src="https://image.tmdb.org/t/p/original/{movie.backdrop_path}"
+								alt={movie?.title}
+								class="w-full h-full"
+							/>
+						</figure>
+					{:else if movie.poster_path}
+						<figure>
+							<img
+								src="https://image.tmdb.org/t/p/original/{movie.backdrop_path}"
+								alt={movie?.title}
+								class="w-full h-full"
+							/>
+						</figure>
+					{:else}
+						<figure>
+							<img src={nofFoundImage} alt={movie?.title} class="w-full h-full" />
+						</figure>
+					{/if}
 					<div class="card-body">
 						<h2 class="card-title text-left">{movie?.title}</h2>
 						<p class="text-left">{movie?.original_title}</p>
@@ -48,7 +63,7 @@
 							</div>
 						{:else}
 							<div>
-								<p class="font-semibold text-center text-4xl">Not found tailer</p>
+								<p class="text-center text-md">Not found tailer</p>
 							</div>
 						{/if}
 						<div class="card-actions justify-end">
